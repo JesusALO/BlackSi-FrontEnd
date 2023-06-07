@@ -21,10 +21,12 @@ export class SignInFormComponent  implements OnInit {
     this.authService.login(email, password).subscribe(
       (response) => {
         // Login successful, handle the response
+        console.log("it works");
         console.log(response);
       },
       (error) => {
         // Login failed, handle the error
+        console.log("it does not work");
         console.error(error);
       }
     );
