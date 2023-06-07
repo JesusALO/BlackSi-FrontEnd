@@ -2,6 +2,9 @@
     max-width: 200px;
 }
 
+.background { 
+
+}
 
 #sign_in {
     align-self: center;
@@ -11,7 +14,11 @@ ion-toolbar {
     --background: black;
 }
 
-ion-content {
-    --background: url('../assets/background-bkacksi.JPG') no-repeat center center fixed;
-    --background-size: cover;
-  }
+
+
+app-root {
+    background-image: url('../assets/black-white.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}

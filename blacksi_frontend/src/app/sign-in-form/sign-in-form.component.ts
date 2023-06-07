@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../auth-service.service';
 
 
 @Component({
@@ -9,12 +10,24 @@ import { Router } from '@angular/router';
 })
 export class SignInFormComponent  implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private authService: AuthServiceService) { }
 
   ngOnInit() {}
 
-  redirectToSignUp() {
-    this.router.navigate(['/sign-up']);
+  login() {
+    const email = 'example@example.com';
+    const password = 'password';
+
+    this.authService.login(email, password).subscribe(
+      (response) => {
+        // Login successful, handle the response
+        console.log(response);
+      },
+      (error) => {
+        // Login failed, handle the error
+        console.error(error);
+      }
+    );
   }
   
   
