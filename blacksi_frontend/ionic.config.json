@@ -1,0 +1,7 @@
+{
+  "name": "blacksi_frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
