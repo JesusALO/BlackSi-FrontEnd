@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http'
@@ -19,6 +19,8 @@ import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule, 
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: SignInFormComponent },
       { path: 'sign-up', component: SignUpFormComponent },
