@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
+import { MapDisplayComponent } from './map-display/map-display.component';
+
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'sign-in', component: SignInFormComponent },
+  { path: 'map-display', component: MapDisplayComponent }
 ];
 
 @NgModule({
