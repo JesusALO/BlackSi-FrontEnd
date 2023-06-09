@@ -14,7 +14,10 @@ ion-toolbar {
     --background: black;
 }
 
-
+ion-content {
+    background-color: black;
+    background-image: url('../assets/black-white.jpg');
+}
 
 app-root {
     background-image: url('../assets/black-white.jpg');
