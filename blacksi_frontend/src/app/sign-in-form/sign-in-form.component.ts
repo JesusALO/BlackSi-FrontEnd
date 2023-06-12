@@ -17,12 +17,9 @@ export class SignInFormComponent  implements OnInit {
   ngOnInit() {}
 
   login() {
-    console.log(this.email, this.password)
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
         // Login successful, handle the response
-        //console.log(loginData.email, loginData.password);
-          
         console.log("it works");
         console.log(response);
       },
