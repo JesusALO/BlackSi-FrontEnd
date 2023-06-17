@@ -1,0 +1,19 @@
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide {
+    width: 10%;
+    height: 10%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
