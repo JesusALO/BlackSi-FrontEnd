@@ -42,25 +42,38 @@ export class LoginPage implements OnInit {
 ////////
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Swiper } from 'swiper';
 
 
 @Component({
-  selector: 'app-',
+  selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  @ViewChild('swiper')
+  swiperRef: ElementRef | undefined;
+  swiper?: Swiper;
+
+  images = [
+    '../../assets/black-white.jpg',
+    '../../assets/black-white2.jpg',
+    '../../assets/black-white3.jpg',
+    '../../assets/black-white4.jpg',
+    '../../assets/black-white5.jpg',
+
+  ];
 
   email:string = '';
   password:string = '';
 
   constructor(private authService: AuthService, private navCtrl: NavController, private router: Router) { }
 
-  ngOnInit() {}
+  
 
   login() {
 
@@ -84,5 +97,25 @@ export class LoginPage implements OnInit {
       
     );
   }
+
+  ngOnInit(): void {
+
+  }
+  swiperSlideChanged(e: any) {
+    console.log('changed: ', e);
+  }
+
+  swiperReady() {
+    this.swiper = this.swiperRef?.nativeElement.swiper;
+  }
+
+  goNext() {
+    this.swiper?.slideNext();
+  }
+
+  goPrev() {
+    this.swiper?.slidePrev();
+  }
+  
 
 }
