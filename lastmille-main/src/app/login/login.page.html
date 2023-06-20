@@ -1,29 +1,83 @@
+<!--
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-toolbar>
+      <img src="assets/Logo-blacksi.JPG" alt="Company Logo" class="logo" shape="round" />
+    </ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goPrev()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+      <ion-button (click)="goNext()">
+        <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content scrollY="false">
+  <swiper-container
+    #swiper
+    (afterinit)="swiperReady()"
+    (slidechange)="swiperSlideChanged($event)"
+    [loop]="true"
+    [pagination]="true"
+    [zoom]="true"
+  >
+    <swiper-slide *ngFor="let image of images">
+      <div class="swiper-zoom-container">
+        <img [src]="image" />
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>-->
+
+
+
+<ion-header [translucent]="true">
+   <ion-toolbar>
+      <img src="assets/Logo-blacksi.JPG" alt="Company Logo" class="logo" shape="round" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-container" shape="round" position="steady">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">login</ion-title>
+      <div>
+        <div class="container">
+          <ion-card class="form-card">
+            <ion-card-content>
+              <ion-list lines="full">
+                <ion-item>
+                  <ion-label position="floating">Email</ion-label>
+                  <ion-input type="email"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Password</ion-label>
+                  <ion-input type="password"></ion-input>
+                </ion-item>
+              </ion-list>
+              <div class="button-container">
+            <ion-button (click)="login()" expand="full" color="dark" shape="round">Sign In</ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+////////////
+
+<!--
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" *ngFor="let slide of slides">
-        <img [src]="'../../assets/black-white.jpg'" alt="Slide">
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</ion-content>
-
-////////////
-
-
-<!--<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+////////
 <ion-content [fullscreen]="true">
   <div class="swiper-container">
     <div class="swiper-wrapper">
@@ -33,25 +87,33 @@
     </div>
     <div class="swiper-pagination"></div>
   </div>
-</ion-content> -->
 
-<!-- To implement later
-<div class="container">
-  <ion-card class="form-card">
-    <ion-card-content>
-      <ion-list lines="full">
-        <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-      </ion-list>
-      <div class="button-container">
-        <ion-button expand="full" color="dark">Sign In</ion-button>
-      </div>
-    </ion-card-content>
-  </ion-card>
-</div>-->
+</ion-content>
+-->
+
+//////////
+To implement later
+
+
+
+  <div>
+    <div class="container">
+      <ion-card class="form-card">
+        <ion-card-content>
+          <ion-list lines="full">
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <div class="button-container">
+        <ion-button (click)="login()" expand="full" color="dark" shape="round">Sign In</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>

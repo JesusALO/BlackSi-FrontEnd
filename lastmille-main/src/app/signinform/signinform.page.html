@@ -1,32 +1,39 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-img src="assets/Logo-blacksi.JPG" alt="Company Logo" class="logo" shape="round"></ion-img>
-  </ion-toolbar>
+  <div style="height:60%;width:1%;display:contents">
+    <ion-toolbar>
+        <img src="assets/Logo-blacksi.JPG" alt="Company Logo" class="logo"/>
+    </ion-toolbar>
+  </div>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="content-container" shape="round">
+<ion-content [fullscreen]="true" class="content-container" shape="round" position="steady">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">signinform</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="container" >
-    <ion-card class="form-card">
-      <ion-card-content>
-        <ion-list lines="full">
-          <ion-item>
-            <ion-label position="floating">Email</ion-label>
-            <ion-input [(ngModel)]="email" type="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating" shape="round">Password</ion-label>
-            <ion-input [(ngModel)]="password" type="password"></ion-input>
-          </ion-item>
-        </ion-list>
-        <div class="button-container">
-          <ion-button expand="full" (click)="login()" color="dark" shape="round">Sign In</ion-button>
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </div>
 </ion-content>
+
+<div style="height:60%;width:100%;display:inline-block">
+  <div class="splitdiv" id="leftdiv">
+    <div id="leftdivcard">
+      <ion-card class="form-card">
+        <ion-card-content>
+          <ion-list lines="full">
+            <ion-item color="light">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input [(ngModel)]="email" type="email"></ion-input>
+            </ion-item>
+            <ion-item color="light">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input [(ngModel)]="password" type="password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <div class="button-container" style="text-align: center;">
+            <ion-button color="medium" expand="full" (click)="login()" shape="round">Sign In</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</div>  
