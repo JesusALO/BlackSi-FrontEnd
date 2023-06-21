@@ -1,7 +1,9 @@
 <ion-header [translucent]="true">
   <div style="height:60%;width:1%;display:contents">
     <ion-toolbar>
+      <div class="center-logo">
         <img src="assets/Logo-blacksi.JPG" alt="Company Logo" class="logo"/>
+      </div>
     </ion-toolbar>
   </div>
 </ion-header>
@@ -14,26 +16,29 @@
   </ion-header>
 </ion-content>
 
-<div style="height:60%;width:100%;display:inline-block">
-  <div class="splitdiv" id="leftdiv">
-    <div id="leftdivcard">
+
+<img src="assets/Logo-blacksi-login.JPG" alt="Image" class="above-image">
+
+<div class="center-container">
       <ion-card class="form-card">
+        <h1 class="login-heading" style="color: black;">LOGIN</h1>
         <ion-card-content>
-          <ion-list lines="full">
-            <ion-item color="light">
+          <div class="email-space">
+            <ion-item color="dark">
               <ion-label position="floating">Email</ion-label>
               <ion-input [(ngModel)]="email" type="email"></ion-input>
             </ion-item>
-            <ion-item color="light">
+          </div>
+            <hr>
+            <ion-item color="dark">
               <ion-label position="floating">Password</ion-label>
               <ion-input [(ngModel)]="password" type="password"></ion-input>
             </ion-item>
-          </ion-list>
+          
           <div class="button-container" style="text-align: center;">
-            <ion-button color="medium" expand="full" (click)="login()" shape="round">Sign In</ion-button>
+            <ion-button color="light" expand="full" (click)="login()" shape="round">Sign In</ion-button>
           </div>
         </ion-card-content>
       </ion-card>
-    </div>
-  </div>
-</div>  
+</div>
+

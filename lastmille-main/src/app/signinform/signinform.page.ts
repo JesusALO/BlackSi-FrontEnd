@@ -19,11 +19,11 @@ export class SigninformPage implements OnInit {
 
   login() {
 
-    this.router.navigate(['/map']);
+    //this.router.navigate(['/map']);//
     console.log(this.email, this.password)
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
-        //this.router.navigate(['/map']);//
+        this.router.navigate(['/map']);
         //this.navCtrl.navigateForward('../../map/map.page.html');//
         // Login successful, handle the response
         //console.log(loginData.email, loginData.password);
