@@ -9,19 +9,15 @@ declare var google: any;
 export class MapPage implements OnInit {
   private directionsService: any;
   map: any;
-  private currentPositionIndex: number = 0;
-  private positions: any[] = [
-    { lat: 28.662208, lng: -106.040669 }, // Position 1
-    { lat: 28.651234, lng: -106.050543 }, // Position 2
-    { lat: 28.649876, lng: -106.058912 }, // Position 3
-    { lat: 28.647890, lng: -106.065432 }, // Position 4
-    { lat: 28.642424, lng: -106.147147 } // Position 5
-  ];
+  private currentPositionMarker: any;
+  private directionsRenderer: any;
+  private waypoints: any[] = [];
+  private currentLocationInterval: any;
+  estimatedTravelTimes: string[] = [];
+
 
   ngOnInit() {
     this.initializeMap();
-    this.calculateAndDisplayRoute();
-    this.updateCurrentPosition();
   }
 
   public initializeMap() {
@@ -34,50 +30,123 @@ export class MapPage implements OnInit {
     const map = new google.maps.Map(mapElement, mapOptions);
 
     this.directionsService = new google.maps.DirectionsService();
+    this.directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
     this.map = map;
+
+    // Add click event listener to allow setting waypoints
+    google.maps.event.addListener(this.map, 'click', (event: any) => {
+      this.addWaypoint(event.latLng);
+    });
+  }
+
+  
+
+  public addWaypointFromSearch() {
+    const input = document.getElementById('search-input') as HTMLInputElement;
+    const address = input.value;
+  
+    if (address.trim() !== '') {
+      this.geocodeLocation(address)
+        .then((location: any) => {
+          this.addWaypoint(location);
+          input.value = ''; // Clear the search input
+        })
+        .catch((error: any) => {
+          console.log('Geocoding error:', error);
+        });
+    }
+  }
+  
+
+
+  private geocodeLocation(address: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address }, (results: any, status: any) => {
+        if (status === 'OK' && results && results.length > 0) {
+          resolve(results[0].geometry.location);
+        } else {
+          reject(status);
+        }
+      });
+    });
+  }
+  
+
+  private addWaypoint(latLng: any) {
+    if (this.waypoints.length >= 8) {
+      window.alert('Maximum number of waypoints reached.');
+      return;
+    }
+
+    this.waypoints.push({ location: latLng });
+    this.calculateAndDisplayRoute();
   }
 
   private calculateAndDisplayRoute() {
-    const directionsRenderer = new google.maps.DirectionsRenderer({ map: this.map });
     const directionsRequest = {
-      origin: this.positions[0], // Replace 'Point A' with the actual starting point
-      destination: this.positions[this.positions.length - 1], // Replace 'Point B' with the actual destination
-      waypoints: this.positions.slice(1, -1).map((position) => ({ location: position })),
-      optimizeWaypoints: true, // Optimize the order of waypoints for the most efficient route
-      travelMode: 'DRIVING', // You can change the travel mode to 'WALKING', 'BICYCLING', or 'TRANSIT'
+      origin: this.waypoints[0]?.location,
+      destination: this.waypoints[this.waypoints.length - 1]?.location,
+      waypoints: this.waypoints.slice(1, -1),
+      optimizeWaypoints: true,
+      travelMode: 'DRIVING',
     };
-
-    const directionsService = new google.maps.DirectionsService();
-    directionsService.route(directionsRequest, (response: any, status: any) => {
+  
+    this.directionsService.route(directionsRequest, (response: any, status: any) => {
       if (status === 'OK') {
-        const directionsRenderer = new google.maps.DirectionsRenderer();
-        directionsRenderer.setMap(this.map);
-        directionsRenderer.setDirections(response);
-
-        // Show your position within the route
-        const myPositionMarker = new google.maps.Marker({
-          position: this.positions[this.currentPositionIndex],
-          map: this.map,
-          icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', // Change the icon as desired
-        });
+        this.directionsRenderer.setDirections(response);
+  
+        const legs = response.routes[0].legs;
+  
+        this.estimatedTravelTimes = legs.map((leg: any) => leg.duration.text);
+  
+        this.startUpdatingCurrentLocation();
       } else {
         window.alert('Directions request failed due to ' + status);
       }
     });
   }
+  
 
-  private updateCurrentPosition() {
-    setInterval(() => {
-      this.currentPositionIndex++;
-      if (this.currentPositionIndex >= this.positions.length) {
-        this.currentPositionIndex = 0;
+  private getInstructions(legs: any[]): string[] {
+    const instructions: string[] = [];
+    for (const leg of legs) {
+      const steps = leg.steps;
+      for (let j = 0; j < steps.length; j++) {
+        instructions.push(steps[j].instructions);
       }
+    }
+    return instructions;
+  }
 
-      const myPositionMarker = new google.maps.Marker({
-        position: this.positions[this.currentPositionIndex],
+  private startUpdatingCurrentLocation() {
+    if (this.currentLocationInterval) {
+      clearInterval(this.currentLocationInterval); // Clear the current location interval if it exists
+    }
+
+    this.currentLocationInterval = setInterval(() => {
+      navigator.geolocation.getCurrentPosition(
+        (position: any) => {
+          const latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          this.updateCurrentPositionMarker(latLng);
+        },
+        (error: any) => {
+          console.log('Error getting current position:', error.message);
+        }
+      );
+    }, 1000); // Update every 10 seconds
+  }
+
+  private updateCurrentPositionMarker(latLng: any) {
+    if (this.currentPositionMarker) {
+      this.currentPositionMarker.setPosition(latLng);
+    } else {
+      this.currentPositionMarker = new google.maps.Marker({
+        position: latLng,
         map: this.map,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', // Change the icon as desired
       });
-    }, 10000); // Interval of 10 seconds
+    }
   }
 }
+
+
