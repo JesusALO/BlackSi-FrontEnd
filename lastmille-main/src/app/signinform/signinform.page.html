@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <div style="height:60%;width:1%;display:contents">
+    <ion-toolbar>
+      <div class="center-logo">
+        <img src="assets/Logo-blacksi.JPG" alt="Company Logo" class="logo"/>
+      </div>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-container" shape="round" position="steady">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">signinform</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+<div class="center-logo">
+  <img src="assets/Logo-blacksi-login.JPG" alt="Image" class="above-image">
+</div>
+
+<div class="center-container">
+      <ion-card class="form-card">
+        <h1 class="login-heading" style="color: black;">LOGIN</h1>
+        <ion-card-content>
+          <div class="email-space">
+            <ion-item color="medium">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input [(ngModel)]="email" type="email"></ion-input>
+            </ion-item>
+          </div>
+            <hr>
+            <ion-item color="medium">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input [(ngModel)]="password" type="password"></ion-input>
+            </ion-item>
+          
+          <div class="button-container" style="text-align: center;">
+            <ion-button color="dark" expand="full" (click)="login()">Sign In</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+</div>

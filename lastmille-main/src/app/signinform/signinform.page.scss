@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh; /* Adjust the height as needed */
+  margin-left: 5%;
+    
+}
+
+.content-container {
+  --background: url('../../assets/black-white.jpeg') no-repeat center center / cover;
+  --background-size: cover;
+  opacity: 0.5; /* Adjust the opacity as desired (0.0 to 1.0) */
+}
+
+.logo {
+    max-width: 200px;
+}
+  .form-card {
+      background-color: #fff;
+      max-width: 400px;
+      width: 100%;  
+    }
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+.center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-heading {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 10%;
+}
+.above-image {
+  display: block;
+  margin: 0 auto;
+  width: 210px;
+  height: 210px; 
+  margin-top: 50px; 
+  border-radius: 100%;
+}
+hr{ 
+  
+  border:         none;
+  border-left:    1px solid hsla(50, 1%, 5%,10);
+  height:         1vh;
+  width:          1px;  
+  opacity: 0.0;     
+}
+.email-space{
+  width: 360px;
+  height: 50px; 
+  border-radius: 1%;
+  margin: 0 auto;
+
+}
+
+    ion-card {
+      align-content: right;
+    }
+    
+    ion-card-content {
+      padding: 20px;
+    }
+    
+    ion-label {
+      color: #000;
+    }
+    
+    .button-container {
+      margin-top: 20px;
+    }
+    
+    ion-button {
+      --color: #fff;
+      --background: #000;
+    }
