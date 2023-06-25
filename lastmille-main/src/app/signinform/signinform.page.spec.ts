@@ -5,7 +5,7 @@ describe('SigninformPage', () => {
   let component: SigninformPage;
   let fixture: ComponentFixture<SigninformPage>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     fixture = TestBed.createComponent(SigninformPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
