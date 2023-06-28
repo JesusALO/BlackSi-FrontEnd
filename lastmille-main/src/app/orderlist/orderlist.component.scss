@@ -1,0 +1,27 @@
+ion-header {
+    ion-toolbar {
+      --background: #3880ff;
+      --color: #fff;
+    }
+  }
+  
+  ion-content {
+    ion-list {
+      ion-item {
+        ion-checkbox {
+          --color: #3880ff;
+        }
+      }
+    }
+  
+    .button-container {
+      margin-top: 20px;
+      padding: 0 16px;
+  
+      ion-button {
+        --background: #3880ff;
+        --color: #fff;
+      }
+    }
+  }
+  

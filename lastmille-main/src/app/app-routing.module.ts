@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
   },
   {
+    path: 'orders',
+    loadChildren: () => import('./orderlist/orderlist.module').then( m => m.OrderlistModule)
+  },
+  {
     path: 'signinform',
     loadChildren: () => import('./signinform/signinform.module').then( m => m.SigninformPageModule)
   },

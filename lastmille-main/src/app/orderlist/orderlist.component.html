@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pending Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let order of orders">
+      <ion-label>{{ order.orderNumber }}</ion-label>
+      <ion-checkbox [(ngModel)]="order.selected"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="startDelivery()">Start Delivery</ion-button>
+</ion-content>
+
+
