@@ -6,7 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { SigninformPageRoutingModule } from './signinform-routing.module';
 
-import { SigninformPage } from './signinform.page';
+// import { SigninformPage } from './signinform.page';
+import { SigninformPage } from './signinform.page'
 
 @NgModule({
   imports: [
