@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="center-logo">
+      <img src="assets/Logo-blacksi.JPG" alt="company Logo" class="logo" class="center-logo"/>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-container" shape="round" position="steady">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">orders</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+
+<div class="center-container">
+  <ion-card class="form-card">
+    <ion-card-header>
+      <h1 class="scrip-to-customer" style="color:rgb(58, 58, 58)">Hola Luis,</h1>
+      <h2 class="scrip-to-customer2">tu orden</h2>
+      <h3 class="scrip-to-customer3">llegará en aprox.</h3>
+    </ion-card-header>
+      <ion-card-content class="scrollable-content">
+        <div class="square-container">
+          <ion-content scrollY="true" style="height: 200px;">
+      <!-- Your content here -->
+          </ion-content>
+        </div>
+      </ion-card-content>
+          <h4 class="customer-address">Dirección</h4>
+        <div class="button-container">
+          <ion-button color="light" expand="full" shape="round" (click)="confirm()">CONFIRMAR</ion-button>
+        </div>
+  </ion-card>
+</div>
