@@ -23,7 +23,8 @@ const routes: Routes = [
   {
     path: 'signinform',
     loadChildren: () => import('./signinform/signinform.module').then( m => m.SigninformPageModule)
-  },  {
+  },
+  {
     path: 'orders',
     loadChildren: () => import('./orders/orders.module').then( m => m.OrdersPageModule)
   },

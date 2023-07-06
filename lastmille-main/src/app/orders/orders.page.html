@@ -22,16 +22,25 @@
       <h2 class="scrip-to-customer2">tu orden</h2>
       <h3 class="scrip-to-customer3">llegará en aprox.</h3>
     </ion-card-header>
-      <ion-card-content class="scrollable-content">
-        <div class="square-container">
-          <ion-content scrollY="true" style="height: 200px;">
-      <!-- Your content here -->
-          </ion-content>
-        </div>
-      </ion-card-content>
-          <h4 class="customer-address">Dirección</h4>
-        <div class="button-container">
-          <ion-button color="light" expand="full" shape="round" (click)="confirm()">CONFIRMAR</ion-button>
+    <h4 class="customer-products">Incluye</h4>
+      <div class="square-container">
+        <ion-card-content class="scrollable-content">
+          <div class="item-container" *ngFor="let item of jsonData" style="display: flex;">
+            <div class="item-property">{{item.producto}}</div>
+            <div class="item-property">{{item.talla}}</div> 
+            <div class="item-property">${{item.precio}}</div>
+          </div>
+        </ion-card-content>
+          <ion-card class="total">
+            <p>Total: {{calculateTotalPrice()}}</p>
+          </ion-card>
+        </div>    
+      <h6 class="customer-address">Dirección</h6>
+      <div class="square-container2">
+        <!-- Your content here -->
+          </div>
+        <div class="order-on-way">
+          <ion-card class="order-on-way2" expand="full" shape="round">Tu orden esta en camino!</ion-card>
         </div>
   </ion-card>
 </div>

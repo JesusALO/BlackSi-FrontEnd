@@ -10,6 +10,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./orders.page.scss'],
 })
 export class OrdersPage implements OnInit {
+  jsonData: any[] = [
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 },
+    { producto: 'Pantalón', talla: 'M', precio: 120 }
+  ];
+  
+  calculateTotalPrice(){
+    let totalPrice = 0;
+    for (let item of this.jsonData){
+      totalPrice += item.price;
+    }
+    return totalPrice;
+  }
 
   constructor(private authService: AuthService, private navCtrl: NavController, private router: Router) { }
 
