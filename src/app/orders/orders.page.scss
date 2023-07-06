@@ -1,0 +1,102 @@
+.content-container{
+    --background: url('../../assets/black-white15.jpg') no-repeat center / cover;
+    --background-size: cover;
+    opacity: 1.0; /*adjust the opacity as desired (0.0 to 1.0)*/
+}
+.logo{
+    max-width: 200px;
+
+}
+.center-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-card{
+    background-color:rgb(229, 229, 229);
+    max-width:450px;
+    width: 100%;
+    border-radius: 18px;
+}
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.scrip-to-customer {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.scrip-to-customer2 {
+    margin-top: 5px;
+    color: black;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.scrip-to-customer3 {
+    margin-top: 5px;
+    color: black;
+    text-align: center;
+    font-size: 17px;
+}
+.scrollable-content{
+    width: 100%;
+    height: 0;
+    padding-bottom: 60%;
+    overflow: auto;
+    
+}
+.square-container{
+    height: 50%;
+    width: 90;
+    max-height: 75vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.customer-address{
+    margin-top: 5px;
+    margin-bottom: 50%;
+    color: black;
+    text-align: center;
+    font-size: 19px;
+}
+.customer-products{
+    margin-top: 1px;
+    margin-bottom: 1%;
+    color: black;
+    text-align: center;
+    font-size: 19px;
+}
+.order-on-way{
+    max-width: 10;
+}
+.order-on-way2{
+    text-align: center;
+    align-items: center;
+    border-radius:18px;
+    font-size: 22px;
+    color: rgb(215, 215, 215);
+}
+.item-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+}
+.item-property{
+    flex: 1;
+    text-align: center;
+}
+.total{
+    display: flex;
+    align-items:flex-end;
+    background-color: aliceblue;
+    font-style: oblique;
+    color: black;
+    margin-left:56%;
+}
