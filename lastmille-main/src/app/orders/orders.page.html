@@ -25,14 +25,15 @@
     <h4 class="customer-products">Incluye</h4>
       <div class="square-container">
         <ion-card-content class="scrollable-content">
-          <div class="item-container" *ngFor="let item of jsonData" style="display: flex;">
-            <div class="item-property">{{item.producto}}</div>
-            <div class="item-property">{{item.talla}}</div> 
-            <div class="item-property">${{item.precio}}</div>
+          <div class="item-container" *ngFor="let order of orders" style="display: flex;">
+            <h2>{{ order.producto }}</h2>
+            <div class="item-property">{{order.talla}}</div> 
+            <div class="item-property">${{order.precio}}</div>
           </div>
         </ion-card-content>
           <ion-card class="total">
             <p>Total: {{calculateTotalPrice()}}</p>
+            <ion-button (click)="confirm()">Confirm Order</ion-button>
           </ion-card>
         </div>    
       <h6 class="customer-address">Dirección</h6>
