@@ -12,36 +12,29 @@
       <ion-title size="large">orders</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="center-container">
+    <ion-card class="form-card">
+      <ion-card-header>
+        <h1 class="scrip-to-customer" style="color:rgb(58, 58, 58)">Hola Luis,</h1>
+        <h2 class="scrip-to-customer2">tu orden</h2>
+        <h3 class="scrip-to-customer3">llegará en aprox.</h3>
+      </ion-card-header>
+      <h4 class="customer-products">Incluye</h4>
+      <div class="square-container">
+        <ion-card-content *ngIf="customers" class="scrollable-content">
+          <div class="item-container" *ngFor="let customer of customers" style="display: flex;">
+            <h2>{{ customer.contact_name }}</h2>
+            <div class="item-property">{{ customer.customer.default_address }}</div>
+            <div class="item-property">{{ customer.total_spent }}</div>
+          </div>
+        </ion-card-content>
+        <ion-card class="total">
+          <p>Total: {{ calculateTotalPrice() }}</p>
+          <ion-button (click)="confirm()">Confirm Order</ion-button>
+        </ion-card>
+      </div>
+    </ion-card>
+  </div>
 </ion-content>
 
 
-<div class="center-container">
-  <ion-card class="form-card">
-    <ion-card-header>
-      <h1 class="scrip-to-customer" style="color:rgb(58, 58, 58)">Hola Luis,</h1>
-      <h2 class="scrip-to-customer2">tu orden</h2>
-      <h3 class="scrip-to-customer3">llegará en aprox.</h3>
-    </ion-card-header>
-    <h4 class="customer-products">Incluye</h4>
-      <div class="square-container">
-        <ion-card-content class="scrollable-content">
-          <div class="item-container" *ngFor="let order of orders" style="display: flex;">
-            <h2>{{ order.producto }}</h2>
-            <div class="item-property">{{order.talla}}</div> 
-            <div class="item-property">${{order.precio}}</div>
-          </div>
-        </ion-card-content>
-          <ion-card class="total">
-            <p>Total: {{calculateTotalPrice()}}</p>
-            <ion-button (click)="confirm()">Confirm Order</ion-button>
-          </ion-card>
-        </div>    
-      <h6 class="customer-address">Dirección</h6>
-      <div class="square-container2">
-        <!-- Your content here -->
-          </div>
-        <div class="order-on-way">
-          <ion-card class="order-on-way2" expand="full" shape="round">Tu orden esta en camino!</ion-card>
-        </div>
-  </ion-card>
-</div>

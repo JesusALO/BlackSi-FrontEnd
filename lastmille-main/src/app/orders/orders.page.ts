@@ -16,6 +16,7 @@ import { throwError } from 'rxjs';
 export class OrdersPage implements OnInit {
   jsonData: any[] = [];
   orders: any[] = [];
+  customers: any[] = [];
 
   fetchOrders() {
     console.log();
@@ -52,7 +53,14 @@ export class OrdersPage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchOrders();
+    this.authService.getCustomer().subscribe(
+      (data: any[]) => {
+        this.customers = data;
+      },
+      (error) => {
+        console.log('Error fetching customer information:', error);
+      }
+    );
   }
 
 }
