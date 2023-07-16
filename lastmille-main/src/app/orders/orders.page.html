@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="center-logo">
+      <img src="assets/Logo-blacksi.JPG" alt="company Logo" class="logo" class="center-logo"/>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-container" shape="round" position="steady">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">orders</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="center-container">
+    <ion-card class="form-card">
+      <ion-card-header>
+        <h1 class="scrip-to-customer" style="color:rgb(58, 58, 58)">Hola Luis,</h1>
+        <h2 class="scrip-to-customer2">tu orden</h2>
+        <h3 class="scrip-to-customer3">llegará en aprox.</h3>
+      </ion-card-header>
+      <h4 class="customer-products">Incluye</h4>
+      <div class="square-container">
+        <ion-card-content *ngIf="customers" class="scrollable-content">
+          <div class="item-container" *ngFor="let customer of customers" style="display: flex;">
+            <h2>{{ customer.contact_name }}</h2>
+            <div class="item-property">{{ customer.customer.default_address }}</div>
+            <div class="item-property">{{ customer.total_spent }}</div>
+          </div>
+        </ion-card-content>
+        <ion-card class="total">
+          <p>Total: {{ calculateTotalPrice() }}</p>
+          <ion-button (click)="confirm()">Confirm Order</ion-button>
+        </ion-card>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
+
+

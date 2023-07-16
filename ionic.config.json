@@ -1,0 +1,7 @@
+{
+  "name": "lastmile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

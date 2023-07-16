@@ -1,0 +1,48 @@
+/*.content-container{
+    --background: url('../../assets/black-white15.jpg') no-repeat center / cover;
+    opacity: 1.0; /*adjust the opacity as desired (0.0 to 1.0)
+}
+.content-container2{
+    --background: url('../../assets/black-white.jpg') no-repeat center / cover;
+    opacity: 1.0; /*adjust the opacity as desired (0.0 to 1.0)
+}
+*/
+.logo{
+    max-width: 200px;
+
+}
+.center-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-container {
+    background-color:rgb(229, 229, 229);
+    max-width:450px;
+    width: 65%;
+    border-radius: 18px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90vr;
+    font-weight: bold;
+}
+.scrip-to-customer {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-container {
+    position: absolute;
+  }
+  
+.image {
+    max-width: 100%;
+    max-height: 100%;
+}
+  
