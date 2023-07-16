@@ -1,5 +1,7 @@
 {
-  "name": "blacksi",
-  "integrations": {},
+  "name": "lastmile",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
